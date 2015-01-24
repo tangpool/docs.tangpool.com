@@ -6,3 +6,5 @@
 - Run Local
   - `cd docs.tangpool.com`
   - `python -m SimpleHTTPServer`
+- 上传阿里云之后，后缀名为`md`需要设置HTTP头
+  - `Content-Type`: `application/octet-stream`
