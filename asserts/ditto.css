@@ -74,7 +74,7 @@ body {
 }
 
 #content {
-    width: 580px;
+    width: 780px;
 
     margin-left: 300px;
     padding-top: 10px;
@@ -312,3 +312,28 @@ input[type=search] {
 #hide {
     display: none;
 }
+
+table{
+    border-spacing: 0px;
+    border-color: gray;
+}
+td, th{
+    padding: 5px 10px;
+    border-width: 0;
+    border-color: #e2e2e2;
+    border-top-style: solid;
+    border-left-style: solid;
+}
+th{
+    background-color: rgb(104, 118, 132);
+    color:#fff;
+}
+tr:nth-child(odd) td {
+    background-color: #fbfbfb
+} /*odd*/
+tr:nth-child(even) td {
+    background-color: #e8ecee
+} /* even*/
+tr:hover td {
+    background-color: #fff;
+} /* hovering */
