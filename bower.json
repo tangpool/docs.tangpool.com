@@ -1,0 +1,21 @@
+{
+  "name": "docs.tangpool.com",
+  "version": "1.0.0",
+  "homepage": "https://github.com/tangpool/docs.tangpool.com",
+  "authors": [
+    "litianzhao <litianzhao@tangpool.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "jquery-ui": "~1.11.2",
+    "marked": "~0.3.3"
+  }
+}
