@@ -1,0 +1,23 @@
+{
+  "name": "docs.tangpool.com",
+  "version": "1.0.0",
+  "description": "欢迎来到唐池文档中心",
+  "scripts": {
+    "watch": "fis release --verbose -w -d ./output & browser-sync start --files 'output/index.html,output/docs/**' --index output/index.html",
+    "build": "fis release --verbose -pom -d ./output",
+    "clean": "rm -rf npm-debug.log output"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tangpool/docs.tangpool.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tangpool/docs.tangpool.com/issues"
+  },
+  "homepage": "https://github.com/tangpool/docs.tangpool.com",
+  "devDependencies": {
+    "fis": "^1.9.2"
+  }
+}

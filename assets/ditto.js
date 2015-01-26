@@ -1,7 +1,7 @@
 var ditto = {
     // page elements
-    content_id: "#content",
-    sidebar_id: "#sidebar",
+    content_id: "#content-inner",
+    sidebar_id: "#sidebar-inner",
 
     edit_id: "#edit",
     back_to_top_id: "#back_to_top",
@@ -18,7 +18,7 @@ var ditto = {
     sidebar: true,
     edit_button: true,
     back_to_top_button: true,
-    searchbar: true,
+    searchbar: false,
 
     // github specifics
     github_username: null,
@@ -92,12 +92,12 @@ function init_edit_button() {
 
 function init_searchbar() {
     var sidebar = $(ditto.sidebar_id).html();
-    var match = "[ditto:searchbar]";
+    var match = "[ditto=searchbar]";
 
     // html input searchbar
     var search = "<input name='" + ditto.search_name + "'";
     search = search + " type='search'";
-    search = search + " results='10'>";
+    search = search + " results='10' placeholder='Search...'>";
 
     // replace match code with a real html input search bar
     sidebar = sidebar.replace(match, search);
@@ -178,7 +178,7 @@ function github_search(query) {
         var github_api = "https://api.github.com/";
         var search = "search/code?q=";
         var github_repo = ditto.github_username + "/" + ditto.github_repo;
-        var search_details = "+in:file+language:markdown+repo:";
+        var search_details = "+in:file+language:md+repo:";
 
         var url = github_api + search + query + search_details + github_repo;
         var accept_header = "application/vnd.github.v3.text-match+json";
@@ -341,7 +341,14 @@ function page_getter() {
 
     // otherwise get the markdown and render it
     var loading = show_loading();
-    $.get(path , function(data) {
+    $.ajax({
+        type: 'GET',
+        url: path,
+        dataType: 'text',
+        beforeSend: function(xhr) {
+            xhr.overrideMimeType('text/plain')
+        }
+    }).success(function(data) {
         $(ditto.error_id).hide();
         data = marked(data);
         $(ditto.content_id).html(data);

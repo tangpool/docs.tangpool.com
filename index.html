@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" href="https://tangpool-static.oss-cn-hangzhou.aliyuncs.com/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="https://tangpool-static.oss-cn-hangzhou.aliyuncs.com/assets/img/favicon.ico"/>
-    <!-- jQuery -->
-    <script src="/asserts/jquery-1.11.0.min.js"></script>
-    <script src="/asserts/jquery-ui.min.js"></script>
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/img/favicon.ico"/>
 
-    <!-- marked -->
-    <script src="/asserts/marked.js"></script>
-
-    <!-- ditto -->
-    <script src="/asserts/ditto.js"></script>
-    <link rel="stylesheet" href="/asserts/ditto.css">
+    <link rel="stylesheet" href="/assets/ditto.css?__inline">
+    <link rel="stylesheet" href="/assets/github-markdown.css?__inline"/>
 </head>
 <body>
     <!-- essential -->
-    <div id="sidebar"></div>
-    <div id="content"></div>
+    <div id="sidebar">
+        <div class="logo">
+            <h1 class="logo-caption" title="唐池 Tangpool 文档中心"><a href="/">唐池文档中心</a></h1>
+        </div>
+
+        <div id="sidebar-inner">
+        </div>
+    </div>
+    <div id="content">
+        <div id="content-inner" class="markdown-body"></div>
+        <div class="copyright">唐池科技 @2015</div>
+    </div>
 
     <!-- optional -->
-    <div id="back_to_top">back to top</div>
-    <div id="edit">edit</div>
-    <div id="loading">Loading ...</div>
+    <div id="back_to_top"> ↑ 返回顶端</div>
+    <div id="edit">改善此文档</div>
+    <div id="loading">加载中...</div>
     <div id="error"></div>
 
-    <script>
-        // essential settings
-        ditto.index = "README.md",
-        ditto.sidebar_file = "sidebar.md",
+    <script src="/assets/lib/jquery/dist/jquery.js?__inline"></script>
+    <script src="/assets/lib/jquery-ui/jquery-ui.js?__inline"></script>
+    <script src="/assets/lib/marked/lib/marked.js?__inline"></script>
+    <script src="/assets/ditto.js?__inline"></script>
+    <script src="/assets/conf.js?__inline"></script>
 
-        // optional settings if you want github search
-        ditto.github_username = null;   // <------- EDIT ME!!
-        ditto.github_repo = null;       // <------- EDIT ME!!
-
-        // where the docs are actually stored on github - so you can edit
-        ditto.base_url = "";            // <------- EDIT ME!!
-
-        // run
-        ditto.run();
-    </script>
+    <script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='//HOST:3000/browser-sync/browser-sync-client.1.9.0.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+    //]]></script>
 </body>
 </html>
