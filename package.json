@@ -5,6 +5,8 @@
   "scripts": {
     "watch": "fis release --verbose -w -d ./output & browser-sync start --files 'output/index.html,output/docs/**' --index output/index.html",
     "build": "fis release --verbose -pom -d ./output",
+    "upload": "/bin/bash scripts/upload.sh",
+    "release": "npm run clean && npm run build && npm run upload",
     "clean": "rm -rf npm-debug.log output"
   },
   "repository": {
