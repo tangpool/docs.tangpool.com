@@ -44,3 +44,15 @@ API 使用 AccessKey 进行简单鉴权，使用时有两种方式提交：
         GET https://docs.tangpool.com/public/API
 
         X-Access-Key: ACCESS_KEY
+
+## 返回异常
+
+如果参数传入错误，服务器将报错，一个典型的返回内容如下：
+
+    {
+       "errorCode" : "INVALID_ARGUMENT",        --- 错误码
+       "errorMsg" : "The dimension field is required.",     --- 错误信息
+       "errorNumber" : 4    --- 错误编码
+    }
+
+访问错误时，HTTP 状态码一般为 400 或者 400 以上。
