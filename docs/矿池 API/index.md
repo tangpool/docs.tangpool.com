@@ -2,9 +2,9 @@
 
 唐池目前开放了所有只读的 API，包括：
 
-* [算力数据](#/docs/share)
-* [收益数据](#/docs/profit)
-* [矿池运行数据](#/docs/pool)
+* [算力数据](#/docs/矿池 API/share)
+* [收益数据](#/docs/矿池 API/profit)
+* [矿池运行数据](#/docs/矿池 API/pool)
 
 与用户安全相关的写操作，如修改地址等目前暂无计划开放。
 
