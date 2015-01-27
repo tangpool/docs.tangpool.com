@@ -280,7 +280,7 @@
 
 .markdown-body h1 {
   padding-bottom: 0.3em;
-  font-size: 1.8em;
+  font-size: 2.25em;
   line-height: 1.2;
   border-bottom: 1px solid #eee;
 }
@@ -291,7 +291,7 @@
 
 .markdown-body h2 {
   padding-bottom: 0.3em;
-  font-size: 1.6em;
+  font-size: 1.75em;
   line-height: 1.225;
   border-bottom: 1px solid #eee;
 }
