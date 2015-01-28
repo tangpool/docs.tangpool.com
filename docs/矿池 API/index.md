@@ -16,13 +16,13 @@
 
 ## 编码
 
-对于需要使用 POST 提交数据的 API，统一使用 `ContentType: application/json`，**不接受 form 编码**。
+对于使用 POST 提交数据的 API，统一使用 `ContentType: application/json`，**不接受 form 编码**。
 
-所有 API 返回的数据均为 JSON 格式。
+API 返回的数据均为 JSON 格式。
 
 ## 鉴权
 
-除矿池数据相关的 API 以外，调用其他 API 时需要使用 AccessKey 验证用户身份。
+除矿池数据相关的 API 以外，调用 API 时需要使用 AccessKey 验证用户身份。
 
 ### 如何获取 AccessKey
 
@@ -30,7 +30,7 @@
 
 **注意**：
 
-AccessKey 是系统用于鉴权的主要方式，请不要泄露给其他用户。一旦发生泄露，请在设置页面重新生成新的 AccessKey。
+AccessKey 是系统鉴权的主要方式，请不要泄露给其他用户。一旦发生泄露，请在设置页面重新生成新的 AccessKey。
 
 ### 请求中进行鉴权
 
@@ -38,10 +38,11 @@ API 使用 AccessKey 进行简单鉴权，使用时有两种方式提交：
 
 1. 在 URL 中做为 querystring 的一部分提交：
 
-        GET https://docs.tangpool.com/public/API?__access_key__=ACCESS_KEY
+        GET https://www.tangpool.com/public/API?__access_key__=ACCESS_KEY
 
-2. 添加在请求 Header 中添加 `X-Access-Key`：
-        GET https://docs.tangpool.com/public/API
+2. 在 Request Header 中添加 `X-Access-Key`：
+
+        GET https://www.tangpool.com/public/API
 
         X-Access-Key: ACCESS_KEY
 
