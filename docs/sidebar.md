@@ -5,6 +5,6 @@
 - [矿池运行数据](#docs/矿池 API/pool)
 
 ## tang++ 0.2.x
-- [安装](#docs/tang++-v0.2.x/install)
-- [API](#docs/tang++-v0.2.x/api)
-- [配置文件详解](#docs/tang++-v0.2.x/conf)
+- [安装](#docs/tpp-v0.2.x/install)
+- [API](#docs/tpp-v0.2.x/api)
+- [配置文件详解](#docs/tpp-v0.2.x/conf)
