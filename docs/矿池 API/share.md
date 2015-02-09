@@ -2,6 +2,39 @@
 
 获取单个用户某个时间维度的总体算力数据，以及单个 worker 的算力数据。
 
+## 获取分组列表
+
+`GET /agent/{agent_id}/group/`
+
+  * agent_id
+
+    矿池用户请填写 0。
+
+### 参数
+
+无。
+
+### 返回值
+
+    [
+        {
+            "mining_group_id": "0",
+            "user_id": "18",
+            "agent_id": "0",
+            "name": "DEFAULT",      --- 分组名称，默认分组为 DEFAULT
+            "color_warning_enabled": false,     --- 是否开启异常着色（前端界面使用）
+            "online_count": "2",    --- 在线机器数
+            "offline_count": "0",   --- 掉线机器数
+            "shares": {             --- 分组算力
+                "shares_1m": "1.466",   --- 1分钟算力
+                "shares_5m": "2.140",   --- 5分钟算力
+                "shares_15m": "2.345",  --- 15分钟算力
+                "unit": "T"             --- 算力单位
+            }
+        }
+    ]
+
+
 ## 获取实时算力
 
 `GET /worker/share/summary/`
@@ -99,7 +132,7 @@
 
 ##### 请求
 
-`https://www.tangpool.com/public/worker/share/?count=4&dimension=15m&start_ts=-3600&__access_key__=eKozz7vGMHfNuUsIJPHRMkq8EcQ0R9P3`
+    https://www.tangpool.com/public/worker/share/?count=4&dimension=15m&start_ts=-3600&__access_key__=eKozz7vGMHfNuUsIJPHRMkq8EcQ0R9P3
     
 ##### 返回
         
