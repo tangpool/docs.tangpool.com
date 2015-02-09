@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/tangpool/docs.tangpool.com",
   "devDependencies": {
+    "browser-sync": "^2.0.0-rc1",
     "fis": "^1.9.2"
   }
 }
