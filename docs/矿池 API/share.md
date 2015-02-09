@@ -2,6 +2,39 @@
 
 获取单个用户某个时间维度的总体算力数据，以及单个 worker 的算力数据。
 
+## 获取分组列表
+
+`GET /agent/{agent_id}/group/`
+
+  * agent_id
+
+    矿池用户请填写 0。
+
+### 参数
+
+无。
+
+### 返回值
+
+    [
+        {
+            "mining_group_id": "0",
+            "user_id": "18",
+            "agent_id": "0",
+            "name": "DEFAULT",      --- 分组名称，默认分组为 DEFAULT
+            "color_warning_enabled": false,     --- 是否开启异常着色（前端界面使用）
+            "online_count": "2",    --- 在线机器数
+            "offline_count": "0",   --- 掉线机器数
+            "shares": {             --- 分组算力
+                "shares_1m": "1.466",   --- 1分钟算力
+                "shares_5m": "2.140",   --- 5分钟算力
+                "shares_15m": "2.345",  --- 15分钟算力
+                "unit": "T"             --- 算力单位
+            }
+        }
+    ]
+
+
 ## 获取实时算力
 
 `GET /worker/share/summary/`
@@ -99,7 +132,7 @@
 
 ##### 请求
 
-`https://www.tangpool.com/public/worker/share/?count=4&dimension=15m&start_ts=-3600&__access_key__=eKozz7vGMHfNuUsIJPHRMkq8EcQ0R9P3`
+    https://www.tangpool.com/public/worker/share/?count=4&dimension=15m&start_ts=-3600&__access_key__=eKozz7vGMHfNuUsIJPHRMkq8EcQ0R9P3
     
 ##### 返回
         
@@ -292,13 +325,7 @@ https://www.tangpool.com/public/worker/share/?count=36&dimension=5m&start_ts=-10
 
 ## 获取矿机列表
 
-**注意**：该 API 目前尚不稳定，接口可能会有变动。
-
-`GET /worker/{cat}/`
-
-  * cat
-
-    矿机排序分类，目前分为 4 类：`online` - 最新上线、`offline` - 最近掉线、`minimum_share` - 最小算力和 `inactive` 非活跃矿机，一般使用 `online` 即可。
+`GET /worker/`
 
 获取某个用户所属的矿机列表。
 
@@ -306,37 +333,70 @@ https://www.tangpool.com/public/worker/share/?count=36&dimension=5m&start_ts=-10
 
 |名称|类型|说明|
 |---|----|----|
-|page|int|可选，页码，默认为 1。|
-|filter|str|可选，按照名称过滤|
+|status|str|可选，指定矿机分类，默认为`all`，可选值为`online/offline/all`|
+|group|int|可选，分组编号，默认为全部分组|
+|page|int|可选，页码，默认为 1|
+|filter|str|可选，按名称过滤，默认为空|
+|order_by|str|可选，排序字段，默认为`last_share_time`。可选值为<br>`mining_worker_id/user_id/agent_id/worker_name/shares_1m/shares_5m/shares_15m/total_accept/total_reject/last_share_time/last_showup_time`|
+|asc|int|可选，指定排序方式；在指定排序字段时必须指定排序方式；默认为`0`，可选值为`0/1`|
+|agent_id|int|指定 agent_id；矿池用户请填写 0|
+
 
 ### 返回值
 
     {
-       "totalCount" : 9,    --- 总数量
-       "totalPage" : 1,  --- 总页码
-       "currentPageSize" : 50,  --- 当前分页大小
-       "data" : [
-          {
-             "reject_percent" : "0.86",      --- 拒绝率
-             "last_showup_time" : "2014-12-11 08:50:48",    --- 最后上线时间
-             "agent_id" : "0",
-             "min_diff" : "65536",     --- 算力难度
-             "last_share_time" : "2014-12-11 11:36:43",     --- 最后上报算力时间
-             "worker_name" : "s99",  --- 矿机名称
-             "last_ip" : "0.0.0.0",  --- 矿机 IP
-             "is_cleaning" : "0",  --- 是否正在清理该矿机的数据
-             "total_reject" : "345376",  --- 总拒绝数
-             "shares_5m" : "0.000",  --- 5 分钟算力
-             "shares_15m" : "0.000",  --- 15 分钟算力
-             "user_id" : "18",  --- 用户 id
-             "total_accept" : "40016368",   --- 总接受数
-             "worker_name_ip" : "0",
-             "mining_worker_id" : "1",  -- worker id
-             "unit" : "K",  -- 格式化后的算力单位
-             "shares_1m" : "0.000"  -- 1分钟算力
-          }
-       ],
-       "currentPage" : 1  -- 当前页码
+        "total": 2,
+        "per_page": 50,
+        "current_page": 1,
+        "last_page": 1,
+        "from": 1,
+        "to": 2,
+        "data": [
+            {
+                "mining_worker_id": "40",
+                "user_id": "18",
+                "agent_id": "0",
+                "group_id": "0",
+                "worker_name": "km",
+                "worker_name_ip": "0",
+                "min_diff": "0",
+                "shares_1m": "439.8",
+                "shares_5m": "674.3",
+                "shares_15m": "733.0",
+                "total_accept": "36395008",
+                "total_reject": "1145344",
+                "last_share_time": "2015-02-09 06:46:17",
+                "last_showup_time": "2015-02-09 02:47:25",
+                "last_ip": "192.168.1.254",
+                "is_cleaning": "0",
+                "is_deleted": "0",
+                "group_name": "DEFAULT",
+                "unit": "G",
+                "reject_percent": "3.05"
+            },
+            {
+                "mining_worker_id": "41",
+                "user_id": "18",
+                "agent_id": "0",
+                "group_id": "0",
+                "worker_name": "s4",
+                "worker_name_ip": "0",
+                "min_diff": "0",
+                "shares_1m": "1.172",
+                "shares_5m": "1.466",
+                "shares_15m": "1.700",
+                "total_accept": "98213632",
+                "total_reject": "983552",
+                "last_share_time": "2015-02-09 06:46:12",
+                "last_showup_time": "2015-02-09 02:47:34",
+                "last_ip": "192.168.1.15",
+                "is_cleaning": "0",
+                "is_deleted": "0",
+                "group_name": "DEFAULT",
+                "unit": "T",
+                "reject_percent": "0.99"
+            }
+        ]
     }
 
 

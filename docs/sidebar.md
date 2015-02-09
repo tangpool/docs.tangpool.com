@@ -8,3 +8,6 @@
 - [安装](#docs/tpp-v0.2.x/install)
 - [API](#docs/tpp-v0.2.x/api)
 - [配置文件详解](#docs/tpp-v0.2.x/conf)
+
+## 扩展 Stratum 协议
+- [扩展协议](#docs/stratum/protocol)

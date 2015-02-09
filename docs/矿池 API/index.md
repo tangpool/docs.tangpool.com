@@ -52,8 +52,7 @@ API 使用 AccessKey 进行简单鉴权，使用时有两种方式提交：
 
     {
        "errorCode" : "INVALID_ARGUMENT",        --- 错误码
-       "errorMsg" : "The dimension field is required.",     --- 错误信息
-       "errorNumber" : 4    --- 错误编码
+       "errorMsg" : "The dimension field is required."     --- 错误信息
     }
 
 访问错误时，HTTP 状态码一般为 400 或者 400 以上。
