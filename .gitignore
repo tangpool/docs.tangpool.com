@@ -1,4 +1,5 @@
 /.idea/
+docs.sublime-*
 /output/
 /npm-debug.log
 /node_modules/
