@@ -13,13 +13,19 @@
 ### 返回值
 
     {
-       "total_payout" : 0.020001,       --- 支付总额
-       "today_profit" : 27.00954142,    --- 总收益
-       "total_balance" : 217.77072623   --- 当前待支付余额
+       "total_payout" : 0.020001,
+       "today_profit" : 27.00954142,
+       "total_balance" : 217.77072623
     }
 
+* total_payout
+  当前用户的历史所有支付额度的总和。
+* today_profit
+  当前结算周期内已获得的收益。
+* total_balance
+  账户待支付余额。
 
-
+在每个结算周期结束后，当天的收益转化为待支付记录（即 total_balance 字段）。
 
 
 
